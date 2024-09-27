@@ -12,6 +12,8 @@ class TreeNode:
 # Leet codes defines a height-balanced binary tree as:
 # a binary tree in which the depth of the two subtrees of every node never differs by more than one.
 
+# for better understanding, the tree is balanced if the difference between left subtree and right subtree is -1 or 0 or 1 (anyone).
+
 
 # Based on this, if have to look at the max depth of the
 # left sub tree from the root (5) and the max depth
@@ -19,12 +21,22 @@ class TreeNode:
 
 
 class Solution:
-
     def isBalanced(self, root: Optional[TreeNode]) -> bool:
         if not root:
             return True
-        # def rec() -> int:
-
+        balanced = True
+        
+        def rec(node) -> int:
+            if not node:
+                return 1
+            leftDepth = rec(node.left)
+            rightDepth = rec(node.right)
+            if abs(leftDepth - rightDepth) > 1:
+                nonlocal balanced
+                balanced = False
+            return max(leftDepth, rightDepth) + 1
+        rec(root)
+        return balanced
 
 
 sol = Solution()
