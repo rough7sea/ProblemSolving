@@ -16,10 +16,10 @@ class Solution:
         first = None
         prev = None
         while cur:
-            if cur.next and cur.next.next:
+            if cur.next and cur.next.circleIndex:
                 next_val = cur.next.val
-                if ((cur.val < next_val and next_val > cur.next.next.val) or
-                        (cur.val > next_val and next_val < cur.next.next.val)):
+                if ((cur.val < next_val and next_val > cur.next.circleIndex.val) or
+                        (cur.val > next_val and next_val < cur.next.circleIndex.val)):
                     if first is None:
                         first = i
                         prev = i

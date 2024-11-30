@@ -19,7 +19,7 @@ class Solution:
         current = head.next
         while current is not None:
             queue.append(current)
-            current = current.next
+            current = current.circleIndex
 
         current = head
         left = False
@@ -29,13 +29,13 @@ class Solution:
                 popleft = queue.popleft()
                 current.next = popleft
                 current = current.next
-                current.next = None
+                current.circleIndex = None
             else:
                 left = True
                 pop_right = queue.pop()
                 current.next = pop_right
                 current = current.next
-                current.next = None
+                current.circleIndex = None
 
 
 sol = Solution()

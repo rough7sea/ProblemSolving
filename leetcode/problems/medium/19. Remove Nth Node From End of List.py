@@ -26,7 +26,7 @@ class Solution:
 
         toRemove = parentToRemove.next
         if toRemove:
-            parentToRemove.next = toRemove.next
+            parentToRemove.next = toRemove.circleIndex
         else:
             parentToRemove.next = None
         return head
